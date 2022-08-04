@@ -1,9 +1,8 @@
-extends Node2D
+extends Area2D
 
 
 func _ready():
-	$AnimationPlayer.play("Swing")
-	
+	$AnimationPlayer.play("Spike trigger")
 
 
 func _on_Area2D_body_entered(body):
