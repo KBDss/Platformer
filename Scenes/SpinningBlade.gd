@@ -5,7 +5,7 @@ func _ready():
 	$AnimationPlayer.play("Spin")
 
 
-func_process(delta):
+func _process(delta):
 	$Path2D/PathFollow2D.offset += follow_speed * delta
 
 
