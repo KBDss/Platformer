@@ -12,6 +12,7 @@ func _process(delta):
 
 
 func _on_Area2D_body_entered(body):
+	print(body)
 	if body.is_in_group("Player"):
 		print("Player dead")
 		if GameStats.check_reset() == false:
