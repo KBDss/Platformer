@@ -252,7 +252,7 @@ font_data = ExtResource( 12 )
 script = ExtResource( 11 )
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
-position = Vector2( 538, 132 )
+position = Vector2( 111, 70 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( -2, -2 )
