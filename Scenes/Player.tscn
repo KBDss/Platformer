@@ -3,10 +3,6 @@
 [ext_resource path="res://Scenes/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/herochar_sprites/herochar_spritesheet(new).png" type="Texture" id=2]
 
-[sub_resource type="CapsuleShape2D" id=10]
-radius = 5.0
-height = 6.0
-
 [sub_resource type="Animation" id=2]
 resource_name = "Attack"
 length = 0.4
@@ -140,6 +136,10 @@ tracks/0/keys = {
 "values": [ 48, 49, 50 ]
 }
 
+[sub_resource type="CapsuleShape2D" id=10]
+radius = 4.0
+height = 4.0
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
@@ -149,9 +149,8 @@ hframes = 8
 vframes = 15
 frame = 40
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1, 0 )
-shape = SubResource( 10 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -1, 8, 2, 8, 3, 7, 3, -1, 1, -5, -2, -5, -5, -2, -5, 7, -4, 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Attack = SubResource( 2 )
@@ -162,3 +161,9 @@ anims/RESET = SubResource( 6 )
 anims/Roll = SubResource( 7 )
 anims/Running = SubResource( 8 )
 anims/fall = SubResource( 9 )
+
+[node name="deathzone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="deathzone"]
+position = Vector2( -1, 1 )
+shape = SubResource( 10 )
