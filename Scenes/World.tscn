@@ -13,7 +13,7 @@
 [ext_resource path="res://Scenes/World.gd" type="Script" id=11]
 [ext_resource path="res://Fonts/joystix monospace.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://Scenes/Lava.tscn" type="PackedScene" id=13]
-[ext_resource path="res://CatLOL.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/CatLOL.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1894.25, 15.75 )
@@ -344,19 +344,19 @@ position = Vector2( 664, 553 )
 [node name="SwingingTraps" type="Node2D" parent="."]
 
 [node name="Swinging Trap6" parent="SwingingTraps" instance=ExtResource( 4 )]
-position = Vector2( 958, 446 )
+position = Vector2( 958, 437 )
 
 [node name="Swinging Trap3" parent="SwingingTraps" instance=ExtResource( 4 )]
-position = Vector2( 880, 142 )
+position = Vector2( 880, 139 )
 
 [node name="Swinging Trap" parent="SwingingTraps" instance=ExtResource( 4 )]
-position = Vector2( 800, 126 )
+position = Vector2( 800, 123 )
 
 [node name="Swinging Trap2" parent="SwingingTraps" instance=ExtResource( 4 )]
-position = Vector2( 430, 112 )
+position = Vector2( 430, 108 )
 
 [node name="Swinging Trap4" parent="SwingingTraps" instance=ExtResource( 4 )]
-position = Vector2( 1080, 256 )
+position = Vector2( 1080, 252 )
 
 [node name="Swinging Trap5" parent="SwingingTraps" instance=ExtResource( 4 )]
 position = Vector2( 303, 28 )
