@@ -40,11 +40,11 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="HotCat" type="Node2D"]
+[node name="Cat" type="Node2D"]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 648, 372.875 )
 scale = Vector2( 5.88182, 4.40152 )
 frames = SubResource( 1 )
-frame = 17
+frame = 14
 playing = true
