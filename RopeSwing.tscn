@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="RopeSwing" type="Node2D"]
+
+[node name="Chain" type="Sprite" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Chain" groups=["Rope"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chain/Area2D"]
