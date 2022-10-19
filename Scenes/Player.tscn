@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/herochar_sprites/herochar_spritesheet(new).png" type="Texture" id=2]
@@ -140,6 +140,9 @@ tracks/0/keys = {
 radius = 4.0
 height = 4.0
 
+[sub_resource type="CircleShape2D" id=11]
+radius = 2.23607
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
@@ -168,4 +171,15 @@ anims/fall = SubResource( 9 )
 position = Vector2( -1, 1 )
 shape = SubResource( 10 )
 
+[node name="GrabZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabZone"]
+shape = SubResource( 11 )
+
+[node name="RopeTimer" type="Timer" parent="GrabZone"]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="area_entered" from="deathzone" to="." method="_on_deathzone_area_entered"]
+[connection signal="area_entered" from="GrabZone" to="." method="_on_GRABZONE_area_entered"]
+[connection signal="timeout" from="GrabZone/RopeTimer" to="." method="_on_RopeTimer_timeout"]

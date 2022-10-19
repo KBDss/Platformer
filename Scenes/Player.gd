@@ -11,10 +11,13 @@ export(float) var friction = 10
 export(float) var acceleration = 25
 
 
-enum state {IDLE, RUNNING, PUSHING, ROLLING, JUMP, STARTJUMP, FALL, ATTACK}
+enum state {IDLE, RUNNING, PUSHING, ROLLING, JUMP, STARTJUMP, FALL, ATTACK, ROPEJUMP}
 
 onready var player_state = state.IDLE
 
+var rope_grabbed = false
+var rope_part = null
+var can_grab = true
 
 func _ready():
 	$AnimationPlayer.play("Idle")
@@ -46,7 +49,8 @@ func handle_state(player_state):
 	match(player_state):
 		state.STARTJUMP:
 			velocity.y = jump_speed
-	pass
+		state.ROPEJUMP:
+			velocity.y = jump_speed/2
 	
 func get_input():
 	var dir = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -56,11 +60,27 @@ func get_input():
 		velocity.x = move_toward(velocity.x, 0, friction)
 
 func _physics_process(delta):
+	var rope_release = false
+	if rope_grabbed:
+		global_position = rope_part.global_position
+		if Input.is_action_just_pressed("jump"):
+			rope_grabbed = false
+			rope_part = null
+			$GrabZone/RopeTimer.start()
+			rope_release = true
+		else:
+			return
+	###
 	get_input()
 	if velocity == Vector2.ZERO:
 		player_state = state.IDLE
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		player_state = state.STARTJUMP
+		
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or rope_release):
+		if rope_release:
+			player_state = state.ROPEJUMP
+		else:
+			player_state = state.STARTJUMP
+			
 	elif velocity.x != 0:
 		player_state = state.RUNNING
 
@@ -82,3 +102,15 @@ func _on_deathzone_area_entered(area):
 	if area.is_in_group("Deadly"):
 		if GameStats.check_reset() == false:
 			global_position = GameStats.get_spawn().global_position
+
+
+func _on_GRABZONE_area_entered(area):
+	if area.is_in_group("Rope") and can_grab:
+		rope_grabbed = true
+		rope_part = area
+		can_grab = false
+		
+		
+
+func _on_RopeTimer_timeout():
+	can_grab = true
