@@ -21,7 +21,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=1]
 resource_name = "Idle"
-length = 0.5
+length = 0.2
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -30,10 +30,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
+"times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0, 2 ]
+"update": 1,
+"values": [ 0, 1 ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -66,5 +66,6 @@ anims/RESET = SubResource( 2 )
 
 [node name="BirdTimer" type="Timer" parent="."]
 wait_time = 5.0
+autostart = true
 
 [connection signal="timeout" from="BirdTimer" to="." method="_on_BirdTimer_timeout"]

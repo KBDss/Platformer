@@ -10,10 +10,8 @@ func _ready():
 
 
 func _on_BirdTimer_timeout():
-	timer = true
-	
-
-	if timer = false:
-		$AnimationPlayer.play("Eating")
+	$AnimationPlayer.play("Eating")
+	yield($AnimationPlayer,"animation_finished")
+	$AnimationPlayer.play("Idle")
 
 
