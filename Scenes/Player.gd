@@ -76,6 +76,7 @@ func _physics_process(delta):
 		player_state = state.IDLE
 		
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or rope_release):
+		SoundPlayer.play_sound_effect("jump")
 		if rope_release:
 			player_state = state.ROPEJUMP
 		else:
@@ -100,6 +101,7 @@ func _physics_process(delta):
 
 func _on_deathzone_area_entered(area):
 	if area.is_in_group("Deadly"):
+		SoundPlayer.play_sound_effect("dead")
 		if GameStats.check_reset() == false:
 			global_position = GameStats.get_spawn().global_position
 

@@ -495,7 +495,7 @@ position = Vector2( -16, 3 )
 position = Vector2( 827, 313 )
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
-position = Vector2( 955, 677 )
+position = Vector2( 135, 67 )
 
 [node name="SpikeSpitter" parent="." instance=ExtResource( 15 )]
 position = Vector2( 573, 664 )
