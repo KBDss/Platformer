@@ -10,7 +10,7 @@ var velocity = Vector2.ZERO
 export(float) var friction = 10
 export(float) var acceleration = 25
 
-
+var last_frame_in_air = false
 enum state {IDLE, RUNNING, PUSHING, ROLLING, JUMP, STARTJUMP, FALL, ATTACK, ROPEJUMP}
 
 onready var player_state = state.IDLE
@@ -86,10 +86,15 @@ func _physics_process(delta):
 		player_state = state.RUNNING
 
 	if not is_on_floor():
+		last_frame_in_air = true
 		if velocity.y < 0:
 			player_state = state.JUMP
 		if velocity.y > 0:
 			player_state = state.FALL
+			
+	if is_on_floor() and last_frame_in_air == true:
+		last_frame_in_air = false
+		SoundPlayer.play_sound_effect("land")
 	
 	
 	handle_state(player_state)
