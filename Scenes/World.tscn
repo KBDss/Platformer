@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/tiles_background/tileset.png" type="Texture" id=2]
@@ -28,6 +28,7 @@
 [ext_resource path="res://Sprites/miscellaneous_sprites/trap_spikes_anim_strip_7.png" type="Texture" id=26]
 [ext_resource path="res://Sprites/miscellaneous_sprites/spikes_trap.png" type="Texture" id=27]
 [ext_resource path="res://Scenes/SpikeSpitter.gd" type="Script" id=28]
+[ext_resource path="res://Scenes/Portal.tscn" type="PackedScene" id=29]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2.5, 2.5 )
@@ -495,7 +496,7 @@ position = Vector2( -16, 3 )
 position = Vector2( 827, 313 )
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
-position = Vector2( 135, 67 )
+position = Vector2( 107, 626 )
 
 [node name="SpikeSpitter" parent="." instance=ExtResource( 15 )]
 position = Vector2( 573, 664 )
@@ -1085,6 +1086,9 @@ margin_right = 3028.0
 margin_bottom = -97.0
 custom_fonts/font = SubResource( 25 )
 text = "00:00:00 "
+
+[node name="Portal" parent="." instance=ExtResource( 29 )]
+position = Vector2( 58, 573 )
 
 [connection signal="area_entered" from="SpikeSpitter/SpikeSpitter/SpikeEnd" to="SpikeSpitter/SpikeSpitter" method="_on_SpikeEnd_area_entered"]
 [connection signal="body_entered" from="SpinningBlade2/Path2D/PathFollow2D/Sprite/Area2D" to="SpinningBlade2" method="_on_Area2D_body_entered"]
