@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/OMFG - Hello.mp3-168ae69dbfc3a58a382d7da805e1271e.mp3str"
+
+[deps]
+
+source_file="res://SFX/Music/OMFG - Hello.mp3"
+dest_files=[ "res://.import/OMFG - Hello.mp3-168ae69dbfc3a58a382d7da805e1271e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

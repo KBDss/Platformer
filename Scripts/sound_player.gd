@@ -5,6 +5,7 @@ onready var music = AudioStreamPlayer.new()
 var music_tracks = {
 	"title_track":"res://SFX/Music/Different Heaven & EH!DE - My Heart (mp3cut.net).wav",
 	"main":"res://SFX/Music/yt1s.io - 1. Basshunter - DotA (Radio Edit) (64 kbps) (mp3cut.net).wav",
+	"end_track":"res://SFX/Music/OMFG - Hello.mp3",
 }
 
 var sound_effects = {
@@ -42,5 +43,10 @@ func play_sound_effect(sfx):
 
 func play_main_music():
 	music.stream = load(music_tracks["main"])
+	add_child(music)
+	music.play()
+
+func play_end_track_music():
+	music.stream = load(music_tracks["end_track"])
 	add_child(music)
 	music.play()
