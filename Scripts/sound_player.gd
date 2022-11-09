@@ -4,7 +4,7 @@ onready var music = AudioStreamPlayer.new()
 
 var music_tracks = {
 	"title_track":"res://SFX/Music/Different Heaven & EH!DE - My Heart (mp3cut.net).wav",
-	"main":"res://SFX/Music/yt1s.io - 1. Basshunter - DotA (Radio Edit) (64 kbps) (mp3cut.net).wav",
+	"main":"res://SFX/Music/Disfigure - Blank.mp3",
 	"end_track":"res://SFX/Music/OMFG - Hello.mp3",
 }
 

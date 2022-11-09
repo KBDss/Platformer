@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Disfigure - Blank.mp3-980fe7ce47194b051d12ddeeb15022c0.mp3str"
+
+[deps]
+
+source_file="res://SFX/Music/Disfigure - Blank.mp3"
+dest_files=[ "res://.import/Disfigure - Blank.mp3-980fe7ce47194b051d12ddeeb15022c0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
