@@ -46,5 +46,5 @@ animations = [ {
 position = Vector2( 648, 372.875 )
 scale = Vector2( 5.88182, 4.40152 )
 frames = SubResource( 1 )
-frame = 18
+frame = 9
 playing = true
